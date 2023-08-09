@@ -14,7 +14,7 @@ void push_m(stack_t **stack, unsigned int line_number)
 
 	if (!new_line[1] || !strcmp(new_line[1], ""))
 	{
-		fprintf(stderr, "l%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free(new_line[0]);
 		exit(EXIT_FAILURE);
 	}
