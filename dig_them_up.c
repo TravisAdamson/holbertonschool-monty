@@ -1,0 +1,52 @@
+#include "monty.h"
+
+/**
+ * num_args - checks if the correct number of arguments exist
+ * @argc: The number of arguments given
+ *
+ * Return: No return
+ */
+void num_args(int argc)
+{
+	if (argc != 2)
+	{
+		dprintf(STDOUT_FILENO, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
+
+}
+
+/**
+ * get_op_code - Find the op code from the next line of file
+ * @file_name: THe name of the file_name
+ * @line_number: The current line number
+ *
+ * Return: No return value
+ */
+void (*get_op_code(char **array, unsigned int line_number, stack_t **stack))\
+	     (stack_t **stack, unsigned int line_number)
+{
+	int index = 0;
+	instruction_t instruct[] = {
+		{"push", push_m},
+		{"pall", pall_m},
+	};
+
+	if (!array)
+		return(NULL);
+	new_line = get_tokens(array[0], " ");
+	if (!new_line || new_line[0][0] == '#')
+		return(NULL);
+	while (instruct[index].opcode)
+	{
+		if (!strcmp(instruct[index].opcode, new_line[0]))
+		{
+			return (instruct[index].f);
+		}
+		index++;
+	}
+	dprintf(STDOUT_FILENO, "L%d: unknown instruction %s\n", line_number, new_line[0]);
+	free(new_line);
+	free(*stack);
+	exit(EXIT_FAILURE);
+}
