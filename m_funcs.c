@@ -14,7 +14,7 @@ void push_m(stack_t **stack, unsigned int line_number)
 
 	if (!new_line[1] || !strcmp(new_line[1], ""))
 	{
-		dprintf(stderr, "l%d: usage: push integer\n", line_number);
+		fprintf(stderr, "l%d: usage: push integer\n", line_number);
 		free(new_line[0]);
 		exit(EXIT_FAILURE);
 	}
@@ -22,7 +22,7 @@ void push_m(stack_t **stack, unsigned int line_number)
 	new = malloc(sizeof(stack_t));
 	if (!new)
 	{
-		dprintf(stderr, "Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		free(new_line[1]);
 		free(new_line[0]);
 		exit(EXIT_FAILURE);

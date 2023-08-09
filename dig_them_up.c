@@ -10,7 +10,7 @@ void num_args(int argc)
 {
 	if (argc != 2)
 	{
-		dprintf(stderr, "USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -45,7 +45,7 @@ void (*get_op_code(char **array, unsigned int line_number, stack_t **stack))\
 		}
 		index++;
 	}
-	dprintf(stderr, "L%d: unknown instruction %s\n", line_number, new_line[0]);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, new_line[0]);
 	free(new_line);
 	free(*stack);
 	exit(EXIT_FAILURE);
