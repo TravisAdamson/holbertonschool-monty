@@ -9,10 +9,10 @@
  */
 void push_m(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new;
+	stack_t *new = NULL;
 	int num;
 
-	if (!new_line[1] || (strcmp(new_line[1], "") != 0))
+	if (!new_line[1] || !strcmp(new_line[1], ""))
 	{
 		dprintf(STDOUT_FILENO, "l%d: usage: push integer\n", line_number);
 		free(new_line[0]);

@@ -1,4 +1,4 @@
-#ifndef MONTy_H
+#ifndef MONTY_H
 #define MONTY_H
 
 #include <stdio.h>
@@ -6,6 +6,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stddef.h>
+#define DELIM " \n\t\r"
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer

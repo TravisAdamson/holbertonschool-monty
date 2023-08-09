@@ -34,7 +34,7 @@ void (*get_op_code(char **array, unsigned int line_number, stack_t **stack))\
 
 	if (!array)
 		return(NULL);
-	new_line = get_tokens(array[0], " ");
+	new_line = get_tokens(array[0], DELIM);
 	if (!new_line || new_line[0][0] == '#')
 		return(NULL);
 	while (instruct[index].opcode)
