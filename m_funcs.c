@@ -88,17 +88,44 @@ void pall_m(stack_t **stack, unsigned int line_number)
  */
 void pint_m(stack_t **stack, unsigned int line_number)
 {
-        stack_t *in_stack;
+	stack_t *in_stack;
 
-        if (!*stack)
+	if (!*stack)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	in_stack = *stack;
-        while (in_stack->prev != NULL)
-        {
+	while (in_stack->prev != NULL)
+	{
 		in_stack = in_stack->prev;
-        }
+	}
 	printf("%d\n", in_stack->n);
+}
+
+/**
+ * pop_m - print the current top of the stack
+ * @stack: current stack
+ * @line_number: current line number in the file
+ *
+ * Return: no return value
+ */
+void pop_m(stack_t **stack, unsigned int line_number)
+{
+	stack_t *pop_stack;
+
+	if (!*stack)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+        }
+	pop_stack = *stack;
+	if (pop_stack->next != NULL)
+	{
+		pop_stack->next->prev = NULL;
+		*stack = pop_stack->next;
+	}
+	else
+		*stack = pop_stack->next;
+	free(pop_stack);
 }

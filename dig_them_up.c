@@ -24,19 +24,20 @@ void num_args(int argc)
  *
  * Return: No return value
  */
-void (*get_op_code(char **array, unsigned int line_number, stack_t **stack))(stack_t **stack, unsigned int line_number)
+void (*get_op(char **ar, unsigned int l_n, stack_t **st))(stack_t **st, unsigned int l_n)
 {
 	int index = 0;
 	instruction_t instruct[] = {
 		{"push", push_m},
 		{"pall", pall_m},
 		{"pint", pint_m},
+		{"pop", pop_m},
 		{NULL, NULL},
 	};
 
-	if (!array)
+	if (!ar)
 		return (NULL);
-	new_line = get_tokens(array[0], " ");
+	new_line = get_tokens(ar[0], " ");
 	if (!new_line || new_line[0][0] == '#')
 		return (NULL);
 	while (instruct[index].opcode)
@@ -47,8 +48,8 @@ void (*get_op_code(char **array, unsigned int line_number, stack_t **stack))(sta
 		}
 		index++;
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, new_line[0]);
+	fprintf(stderr, "L%d: unknown instruction %s\n", l_n, new_line[0]);
 	free(new_line);
-	free(*stack);
+	free(*st);
 	exit(EXIT_FAILURE);
 }

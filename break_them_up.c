@@ -80,7 +80,7 @@ void parse_file(char *path_name)
 		}
 		if (this_array)
 		{
-			func = get_op_code(this_array, line_number, &stack);
+			func = get_op(this_array, line_number, &stack);
 			if (func)
 			{
 				func(&stack, line_number);
