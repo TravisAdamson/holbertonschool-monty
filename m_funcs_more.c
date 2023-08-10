@@ -42,13 +42,13 @@ void add_m(stack_t **stack, unsigned int line_number)
 	stack_t *add_stack;
 	int total = 0;
 
-	if (!stack || new_line[1] == NULL)
+	if (!stack)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	add_stack = *stack;
-	if (add_stack->next == NULL)
+	if (add_stack->next == NULL || add_stack->next->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
