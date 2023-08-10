@@ -1,5 +1,25 @@
 #include "monty.h"
+/**
+ * num_only - Makes sure the arguement is only a number
+ * @in_arg: The number to verify
+ *
+ * Return: 1 if all numbers, 0 if not
+ */
+int num_only(char *in_arg)
+{
+	int index = 0;
 
+	while (in_arg[index])
+	{
+		if (in_arg[index] < 48 || in_arg[index] > 57)
+		{
+			if (in_arg[index] != '-')
+				return (1);
+		}
+		index++;
+	}
+	return (0);
+}
 /**
  * push_m - push the given value to the monty stack
  * @stack: The current stack
@@ -12,7 +32,7 @@ void push_m(stack_t **stack, unsigned int line_number)
 	stack_t *new = NULL;
 	int num;
 
-	if (!new_line[1] || !strcmp(new_line[1], ""))
+	if (!new_line[1] || !strcmp(new_line[1], "") || num_only(new_line[1]) == 1)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free(new_line[0]);
