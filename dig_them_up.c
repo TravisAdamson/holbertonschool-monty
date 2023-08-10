@@ -24,8 +24,11 @@ void num_args(int argc)
  *
  * Return: No return value
  */
-void (*get_op_code(char **array, unsigned int line_number, stack_t **stack))\
-(stack_t **stack, unsigned int line_number)
+void (*get_op_code(
+	char **array, 
+	unsigned int line_number, 
+	stack_t **stack
+))(stack_t **stack, unsigned int line_number)
 {
 	int index = 0;
 	instruction_t instruct[] = {
