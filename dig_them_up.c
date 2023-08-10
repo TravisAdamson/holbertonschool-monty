@@ -46,7 +46,7 @@ void (*get_op_code(char **array, unsigned int line_number, stack_t **stack))\
 		}
 		index++;
 	}
-	fprintf(stderr, "L%d:unknown instruction %s\n", line_number, new_line[0]);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, new_line[0]);
 	free(new_line);
 	free(*stack);
 	exit(EXIT_FAILURE);
