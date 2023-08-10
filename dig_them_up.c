@@ -32,6 +32,7 @@ void (*get_op(char **ar, unsigned int l_n, stack_t **st))(stack_t **st, unsigned
 		{"pall", pall_m},
 		{"pint", pint_m},
 		{"pop", pop_m},
+		{"swap", swap_m},
 		{NULL, NULL},
 	};
 
