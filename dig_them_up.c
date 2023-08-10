@@ -36,19 +36,17 @@ void (*get_op_code(char **array, unsigned int line_number, stack_t **stack))\
 	if (!array)
 		return(NULL);
 	new_line = get_tokens(array[0], " ");
-	fflush(stdout);
 	if (!new_line || new_line[0][0] == '#')
 		return(NULL);
 	while (instruct[index].opcode)
 	{
 		if (!strcmp(instruct[index].opcode, new_line[0]))
 		{
-			printf("Got here");
 			return (instruct[index].f);
 		}
 		index++;
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, new_line[0]);
+	fprintf(stderr, "L%d:unknown instruction %s\n", line_number, new_line[0]);
 	free(new_line);
 	free(*stack);
 	exit(EXIT_FAILURE);

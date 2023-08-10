@@ -19,7 +19,6 @@ char **get_tokens(char *str, char *delim)
 	if (!(str1) || !(str2))
 		return (NULL);
 	ptr = strtok(str1, delim);
-	printf("ptr = %s\n", ptr);
 	if (ptr == NULL)
 	{
 		free(str1);
