@@ -61,7 +61,7 @@ void parse_file(char *path_name)
 	FILE *file_pointer = NULL;
 	size_t total = 0;
 	char *current_line = NULL, **this_array;
-	void(*func)(stack_t **stack, unsigned int line_number);
+	void (*func)(stack_t **stack, unsigned int line_number);
 	stack_t *stack = NULL;
 	unsigned int line_number = 1;
 
@@ -76,8 +76,7 @@ void parse_file(char *path_name)
 		if (current_line)
 		{
 			this_array = get_tokens(current_line, "\n");
-			free(current_line);
-			current_line = NULL;
+			free(current_line), current_line = NULL;
 		}
 		if (this_array)
 		{
@@ -88,21 +87,15 @@ void parse_file(char *path_name)
 				if (!strcmp(new_line[0], "FATAL_PUSH_ERROR"))
 				{
 					fclose(file_pointer);
-					free_array(new_line);
-					free(current_line);
-					free_stack(stack);
-					free_array(this_array);
+					free_array(new_line), free(current_line);
+					free_stack(stack), free_array(this_array);
 					exit(EXIT_FAILURE);
 				}
 			}
-			free_array(this_array);
-			this_array = NULL;
-			free_array(new_line);
-			new_line = NULL;
+			free_array(this_array), this_array = NULL;
+			free_array(new_line), new_line = NULL;
 		}
 		line_number++;
 	}
-	fclose(file_pointer);
-	free(current_line);
-	free_stack(stack);
+	fclose(file_pointer), free(current_line), free_stack(stack);
 }
