@@ -60,3 +60,15 @@ void add_m(stack_t **stack, unsigned int line_number)
 	add_stack->next->prev = NULL;
 	free(add_stack);
 }
+
+/**
+ * nop_m - Does nothing
+ * @stack: The stack to do nothing to
+ * @line_number: The line number requesting nothing to be done
+ *
+ * Return: No return
+ */
+void nop_m(stack_t **stack, unsigned int line_number)
+{
+	return;
+}
