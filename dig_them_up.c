@@ -24,7 +24,7 @@ void num_args(int argc)
  *
  * Return: No return value
  */
-void (*get_op(char **ar, unsigned int l_n, stack_t **st))(stack_t **st, unsigned int l_n)
+void (*get_op(char **ar, unsigned int l_n, stack_t **st))(stack_t **stack, unsigned int line_number)
 {
 	int index = 0;
 	instruction_t instruct[] = {
