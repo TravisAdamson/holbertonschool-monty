@@ -78,3 +78,27 @@ void pall_m(stack_t **stack, unsigned int line_number)
 		in_stack = in_stack->next;
 	}
 }
+
+/**
+ * pint_m - print the current top of the stack
+ * @stack: current stack
+ * @line_number: current line number in the file
+ *
+ * Return: no return value
+ */
+void pint_m(stack_t **stack, unsigned int line_number)
+{
+        stack_t *in_stack;
+
+        if (!stack)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	in_stack = *stack;
+        while (in_stack->prev != NULL)
+        {
+		in_stack = in_stack->prev;
+        }
+	printf("%d\n", in_stack->n);
+}

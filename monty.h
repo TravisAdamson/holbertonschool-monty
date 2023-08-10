@@ -46,6 +46,7 @@ char **new_line;
 
 void push_m(stack_t **stack, unsigned int line_number);
 void pall_m(stack_t **stack, unsigned int line_number);
+void pint_m(stack_t **stack, unsigned int line_number);
 
 void full_path(char **path_name, char *file_name);
 void parse_file(char *path_name);

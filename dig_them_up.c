@@ -30,6 +30,7 @@ void (*get_op_code(char **array, unsigned int line_number, stack_t **stack))(sta
 	instruction_t instruct[] = {
 		{"push", push_m},
 		{"pall", pall_m},
+		{"pint", pint_m},
 		{NULL, NULL},
 	};
 
