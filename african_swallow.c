@@ -2,8 +2,8 @@
 
 /**
  * file_exists - Checks if the file_name is valid
- * @file_name: given file name
- * @line_number: The current line number
+ * @path_name: given path name
+ * @file_name: The name of the file alone
  *
  * Return value: No return value
  */

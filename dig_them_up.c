@@ -18,7 +18,8 @@ void num_args(int argc)
 
 /**
  * get_op_code - Find the op code from the next line of file
- * @file_name: THe name of the file_name
+ * @array: The array
+ * @stack: The stack to use
  * @line_number: The current line number
  *
  * Return: No return value
