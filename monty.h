@@ -56,7 +56,7 @@ void full_path(char **path_name, char *file_name);
 void parse_file(char *path_name);
 char **get_tokens(char *str, char *delim);
 void (*get_op_code(char **array, unsigned int line_number, stack_t **stack))\
-             (stack_t **stack, unsigned int line_number)
+             (stack_t **stack, unsigned int line_number);
 void num_args(int argc);
 void file_exists(char *path_name, char *file_name);
 void free_array(char **array);
