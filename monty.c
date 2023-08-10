@@ -19,6 +19,8 @@ int main(int argc, char **argv)
 	file_name = argv[1];
 	full_path(&path_name, file_name);
 	file_exists(path_name, file_name);
+	printf("Getting here");
+	fflush(stdout);
 	parse_file(path_name);
 	exit(EXIT_SUCCESS);
 }

@@ -12,24 +12,32 @@ char **get_tokens(char *str, char *delim)
 	int index = 0;
 	char *str1 = NULL, *str2 = NULL, *ptr = NULL, **array_to_use = NULL;
 
-	if (!(str))
+	if (!(str) || !(delim))
 		return (NULL);
 	str1 = strdup(str);
 	str2 = strdup(str);
 	if (!(str1) || !(str2))
 		return (NULL);
 	ptr = strtok(str1, delim);
-	for (index = 0; ptr != NULL; index++)
-		ptr = strtok(NULL, delim);
-	array_to_use = malloc(sizeof(char *) * (index + 1));
-	if (!array_to_use)
-		return (NULL);
-	ptr = strtok(str2, delim);
-	if (!ptr)
+	printf("ptr = %s\n", ptr);
+	if (ptr == NULL)
 	{
 		free(str1);
 		free(str2);
-		free(array_to_use);
+		return (NULL);
+	}
+	for (index = 0; ptr != NULL; index++)
+	{
+		ptr = strtok(NULL, delim);
+	}
+	array_to_use = malloc(sizeof(char *) * (index + 1));
+	if (array_to_use == NULL)
+		return (NULL);
+	ptr = strtok(str2, delim);
+	if (ptr == NULL)
+	{
+		free(str1);
+		free(str2);
 		return (NULL);
 	}
 	for (index = 0; ptr != NULL; index++)

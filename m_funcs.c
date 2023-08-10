@@ -36,7 +36,8 @@ void push_m(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free(new_line[0]);
-		exit(EXIT_FAILURE);
+		new_line[0] = strdup("FATAL_PUSH_ERROR");
+		return;
 	}
 	num = atoi(new_line[1]);
 	new = malloc(sizeof(stack_t));

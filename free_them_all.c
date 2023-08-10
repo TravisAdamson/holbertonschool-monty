@@ -10,6 +10,8 @@ void free_array(char **array)
 {
 	int index = 0;
 
+	if (array == NULL)
+		return;
 	while (array[index])
 	{
 		free(array[index]);
@@ -29,7 +31,7 @@ void free_stack(stack_t *stack)
 	stack_t *temp;
 
 	temp = stack;
-	if (!stack)
+	if (stack)
 		return;
 	while (1)
 	{
