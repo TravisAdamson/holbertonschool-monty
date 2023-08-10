@@ -24,8 +24,7 @@ void num_args(int argc)
  *
  * Return: No return value
  */
-void (*get_op_code(char **array, unsigned int line_number, stack_t **stack))\
-	     (stack_t **stack, unsigned int line_number)
+void (*get_op_code(char **array, unsigned int line_number, stack_t **stack))(stack_t **stack, unsigned int line_number)
 {
 	int index = 0;
 	instruction_t instruct[] = {
@@ -35,10 +34,10 @@ void (*get_op_code(char **array, unsigned int line_number, stack_t **stack))\
 	};
 
 	if (!array)
-		return(NULL);
+		return (NULL);
 	new_line = get_tokens(array[0], " ");
 	if (!new_line || new_line[0][0] == '#')
-		return(NULL);
+		return (NULL);
 	while (instruct[index].opcode)
 	{
 		if (!strcmp(instruct[index].opcode, new_line[0]))

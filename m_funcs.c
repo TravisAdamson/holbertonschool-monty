@@ -67,7 +67,7 @@ void push_m(stack_t **stack, unsigned int line_number)
 void pall_m(stack_t **stack, unsigned int line_number)
 {
 	stack_t *in_stack;
-	
+
 	(void)line_number;
 	if (!stack)
 		return;

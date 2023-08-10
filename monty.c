@@ -2,7 +2,7 @@
 
 /**
  * main - My monty file interpreter
- * @argc: The number of arguments 
+ * @argc: The number of arguments
  * @argv: The arguments
  *
  * Return: EXIT_SUCCESS or EXIT_FAILURE
