@@ -61,7 +61,7 @@ void parse_file(char *path_name)
 	FILE *file_pointer = NULL;
 	size_t total = 0;
 	char *current_line = NULL, **this_array;
-	v func;
+	void (*func)(stack_t **stack, unsigned int line_number);
 	stack_t *stack = NULL;
 	unsigned int line_number = 1;
 

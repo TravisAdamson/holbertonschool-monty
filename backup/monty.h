@@ -44,8 +44,6 @@ typedef struct instruction_s
  */
 char **new_line;
 
-typedef void (*v)(stack_t **stack, unsigned int line_number);
-
 void push_m(stack_t **stack, unsigned int line_number);
 void pall_m(stack_t **stack, unsigned int line_number);
 void pint_m(stack_t **stack, unsigned int line_number);
@@ -57,7 +55,8 @@ void nop_m(stack_t **stack, unsigned int line_number);
 void full_path(char **path_name, char *file_name);
 void parse_file(char *path_name);
 char **get_tokens(char *str, char *delim);
-v get_op_code(char **array, unsigned int line_number, stack_t **stack);
+void (*get_op_code(char **array, unsigned int line_number, stack_t **stack))\
+             (stack_t **stack, unsigned int line_number);
 void num_args(int argc);
 void file_exists(char *path_name, char *file_name);
 void free_array(char **array);

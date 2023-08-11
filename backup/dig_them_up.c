@@ -24,7 +24,8 @@ void num_args(int argc)
  *
  * Return: No return value
  */
-v get_op_code(char **array, unsigned int line_number, stack_t **stack)
+void (*get_op_code(char **array, unsigned int line_number, stack_t **stack))\
+	(stack_t **stack, unsigned int line_number)
 {
 	int index = 0;
 	instruction_t instruct[] = {
@@ -36,6 +37,7 @@ v get_op_code(char **array, unsigned int line_number, stack_t **stack)
 		{"add", add_m},
 		{"nop", nop_m},
 		{NULL, NULL},
+		{"func", get_op_code},
 	};
 
 	if (!array)
