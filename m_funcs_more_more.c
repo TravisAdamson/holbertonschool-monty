@@ -45,3 +45,25 @@ void mod_m(stack_t **stack, unsigned int line_number)
 	mod_stack->next->n = (mod_stack->next->n) % (mod_stack->n);
 	pop_m(stack, line_number);
 }
+
+/**
+ * pchar_m - Prints the top element as an char using ascii
+ * @stack: The stack to look at
+ * @line_number: The line_number being read from the file
+ *
+ * Return: No Return Value
+ */
+void pchar_m(stack_t **stack, unsigned int line_number)
+{
+	if (!*stack)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->n < 32 || (*stack)->n > 126)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	putchar((*stack)->n);
+}
