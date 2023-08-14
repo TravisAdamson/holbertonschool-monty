@@ -114,7 +114,7 @@ void div_m(stack_t **stack, unsigned int line_number)
 	if ((*stack)->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
-		exit(EXIT_SUCCESS);
+		exit(EXIT_FAILURE);
 	}
 	div_stack = *stack;
 	div_stack->next->n = div_stack->next->n / div_stack->n;
