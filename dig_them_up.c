@@ -38,6 +38,7 @@ v get_op_code(char **array, unsigned int line_number, stack_t **stack)
 		{"sub", sub_m},
 		{"div", div_m},
 		{"mul", mul_m},
+		{"mod", mod_m},
 		{NULL, NULL},
 	};
 
