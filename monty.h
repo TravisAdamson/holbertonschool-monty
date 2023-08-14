@@ -54,6 +54,7 @@ void swap_m(stack_t **stack, unsigned int line_number);
 void add_m(stack_t **stack, unsigned int line_number);
 void nop_m(stack_t **stack, unsigned int line_number);
 void sub_m(stack_t **stack, unsigned int line_number);
+void div_m(stack_t **stack, unsigned int line_number);
 
 void full_path(char **path_name, char *file_name);
 void parse_file(char *path_name);
