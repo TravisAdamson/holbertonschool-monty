@@ -94,3 +94,29 @@ void sub_m(stack_t **stack, unsigned int line_number)
 	sub_stack->next->n = sub_stack->next->n - sub_stack->n;
 	pop_m(stack, line_number);
 }
+
+/**
+ * div_m - Divides the second element by the first
+ * @stack: The stack to be used
+ * @line_number: The current line number from the file
+ *
+ * Return: No Retun Value
+ */
+void div_m(stack_t **stack, unsigned int line_number)
+{
+	stack_t *div_stack;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		exit(EXIT_SUCCESS);
+	}
+	div_stack = *stack;
+	div_stack->next->n = div_stack->next->n / div_stack->n;
+	pop_m(stack, line_number);
+}
