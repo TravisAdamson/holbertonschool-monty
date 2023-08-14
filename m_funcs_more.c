@@ -83,10 +83,9 @@ void nop_m(stack_t **stack, unsigned int line_number)
  */
 void sub_m(stack_t **stack, unsigned int line_number)
 {
-	int result = 0;
 	stack_t *sub_stack;
 
-	if (*stack == NULL || *stack->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
