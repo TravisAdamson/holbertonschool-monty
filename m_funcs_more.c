@@ -73,3 +73,25 @@ void nop_m(stack_t **stack, unsigned int line_number)
 	(void)stack;
 	(void)line_number;
 }
+
+/**
+ * sub_m - Subtract the top element from the next one down
+ * @stack: The stack to be used
+ * @line_number: The current line number from the file
+ *
+ * Return: No Return value
+ */
+void sub_m(stack_t **stack, unsigned int line_number)
+{
+	int result = 0;
+	stack_t *sub_stack;
+
+	if (*stack == NULL || *stack->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	sub_stack = *stack;
+	sub_stack->next->n = sub_stack->next->n - sub_stack->n;
+	pop_m(stack, line_number);
+}
